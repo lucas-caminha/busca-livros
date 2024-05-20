@@ -1,0 +1,20 @@
+body {
+    background-color: #f0f8ff; /* Azul Claro */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.book {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #ffffff; /* Fundo branco para os cartões dos livros */
+}
+
+.container {
+    background-color: #ffffff; /* Fundo branco para o container */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

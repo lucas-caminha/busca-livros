@@ -24,7 +24,7 @@ function displayResults(books) {
     if (books && books.length > 0) {
         books.forEach(book => {
             const bookDiv = document.createElement('div');
-            bookDiv.className = 'book';
+            bookDiv.className = 'book row';
 
             const title = book.volumeInfo.title || 'Título não disponível';
             const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autores não disponíveis';
@@ -36,12 +36,19 @@ function displayResults(books) {
                 price = `${book.saleInfo.listPrice.amount} ${book.saleInfo.listPrice.currencyCode}`;
             }
 
+            const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/128x193?text=Sem+Imagem';
+
             bookDiv.innerHTML = `
-                <h2>${title}</h2>
-                <p><strong>Autores:</strong> ${authors}</p>
-                <p><strong>Preço:</strong> ${price}</p>
-                <p>${description}</p>
-                <p><a href="${infoLink}" class="btn btn-primary" target="_blank">Mais informações</a></p>
+                <div class="col-md-2">
+                    <img src="${thumbnail}" class="img-fluid" alt="${title}">
+                </div>
+                <div class="col-md-10">
+                    <h2>${title}</h2>
+                    <p><strong>Autores:</strong> ${authors}</p>
+                    <p><strong>Preço:</strong> ${price}</p>
+                    <p>${description}</p>
+                    <p><a href="${infoLink}" class="btn btn-primary" target="_blank">Mais informações</a></p>
+                </div>
             `;
 
             resultsDiv.appendChild(bookDiv);
